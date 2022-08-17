@@ -1,0 +1,29 @@
+from time import time
+
+
+def performance(fn):
+    def wrapper(*args, **kwargs):
+        t1 = time()
+        result = fn(*args, **kwargs)
+        t2 = time()
+        print(f'took {t2-t1}')
+        return result
+    return wrapper
+
+
+my_selection = ['b', 'a', 's', 'w', 'w', 'r', 'a', 'x', 'z', 'v', 'v']
+my_list = [2, 3, 4, 4, 5, 5, 23, 3, 2, 3232, 34, 34, 11, 34, 25, 24, 11, 42]
+
+dupplicates = []
+
+
+@performance
+def find_dupplicates(itb):
+    for items in itb:
+        if itb.count(items) > 1:
+            if items not in dupplicates:
+                dupplicates.append(items)
+                print(dupplicates)
+
+
+find_dupplicates(my_selection)
