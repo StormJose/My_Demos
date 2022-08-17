@@ -1,3 +1,6 @@
+# small program responsible for finding dupplicates in any iterable. 
+# The performance() module returns the time taken by the function to from the run start to the output
+
 from time import time
 
 
